@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^17.2.1",
     "node-telegram-bot-api": "^0.66.0",
     "pg": "^8.13.1",
     "xlsx": "^0.18.5"
