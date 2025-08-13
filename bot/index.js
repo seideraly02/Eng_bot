@@ -1,11 +1,13 @@
+require('dotenv').config(); // Загружаем переменные окружения из .env
+
 const TelegramBot = require('node-telegram-bot-api');
 const { handleUpdateAsync, handleErrorAsync } = require('./modules/MessageHandler');
 
-const botToken = '7687420684:AAGb9BNUzwRl_nf1-WBAGDqoNCI5XjbFPmM';
-
+// Берём токен из .env
+const botToken = process.env.BOT_TOKEN;
 
 if (!botToken) {
-  console.error('Ошибка: Токен бота не найден.');
+  console.error('Ошибка: Токен бота не найден в .env');
   process.exit(1);
 }
 
@@ -26,7 +28,7 @@ bot.on('message', async (msg) => {
   try {
     await handleUpdateAsync(bot, { message: msg });
   } catch (err) {
-    console.error('Ошибка при обработке сообщения:', err.message);
+    console.error('Ошибка при обработке сообщения:', err.stack || err.message);
     await handleErrorAsync(bot, err);
   }
 });
@@ -36,7 +38,7 @@ bot.on('callback_query', async (query) => {
   try {
     await handleUpdateAsync(bot, { callback_query: query });
   } catch (err) {
-    console.error('Ошибка при обработке callback_query:', err.message);
+    console.error('Ошибка при обработке callback_query:', err.stack || err.message);
     await handleErrorAsync(bot, err);
   }
 });
