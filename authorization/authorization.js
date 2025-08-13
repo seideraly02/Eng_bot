@@ -14,7 +14,6 @@ const dbClient = new Client(dbConfig);
 dbClient.connect();
 
 // Initialize the bot
-// const botToken = '7973349143:AAGbJTU4h0XlHgqzQG8SrkgKxnd-86_tr40'; // Replace with your token
 const bot = new TelegramBot(botToken, { polling: true });
 
 // Handle /start command and messages

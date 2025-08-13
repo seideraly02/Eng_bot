@@ -2,7 +2,6 @@ const TelegramBot = require('node-telegram-bot-api');
 const { Client } = require('pg');
 
 // Initialize the bot
-// const botToken = '6980232097:AAGgcYVOcYRvzamA4XluBr-SRQp5JUAO7F4';
 const bot = new TelegramBot(botToken, { polling: true });
 
 // PostgreSQL connection setup
