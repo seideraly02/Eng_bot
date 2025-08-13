@@ -1,4 +1,11 @@
 {
+  "name": "eng_bot",
+  "version": "1.0.0",
+  "description": "Telegram bot Eng_bot",
+  "main": "bot/index.js",
+  "scripts": {
+    "start": "node bot/index.js"
+  },
   "dependencies": {
     "dotenv": "^17.2.1",
     "node-telegram-bot-api": "^0.66.0",
